@@ -119,8 +119,24 @@ th:nth-child(2) {
     padding: 6px 10px 6px 26px;
     position: relative;
 }
+.site-nav a::after {
+    content: "";
+    position: absolute;
+    left: 26px;
+    right: 10px;
+    bottom: 1px;
+    height: 2px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 180ms ease;
+}
 .site-nav a:hover {
     opacity: 0.9;
+}
+.site-nav a:hover::after,
+.site-nav a.active::after {
+    transform: scaleX(1);
 }
 
 /* Add top padding to body so fixed nav doesn't cover content */
