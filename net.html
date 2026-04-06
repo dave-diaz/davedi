@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocols and Ports</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="site-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="net.html">Certs</a></li>
+        </ul>
+    </nav>
+    <div class="hero-image-wrap">
+        <img src="switch.png" alt="Network switch" class="hero-image">
+    </div>
+    <section class="osi-section">
+        <h2 class="page-subheader" style="text-align:center; margin-top:16px; color:#ffffff; font-size:1.25rem;">OSI Model</h2>
+        <div class="table-container">
+        <table class="standard-table">
+            <colgroup>
+                <col style="width:50%;">
+                <col style="width:50%;">
+            </colgroup>
+            <tr>
+                <th>Layer</th>
+                <th>OSI Layer</th>
+            </tr>
+            <tr><td>Layer 1</td><td>Physical</td></tr>
+            <tr><td>Layer 2</td><td>Data Link</td></tr>
+            <tr><td>Layer 3</td><td>Network</td></tr>
+            <tr><td>Layer 4</td><td>Transport</td></tr>
+            <tr><td>Layer 5</td><td>Session</td></tr>
+            <tr><td>Layer 6</td><td>Presentation</td></tr>
+            <tr><td>Layer 7</td><td>Application</td></tr>
+        </table>
+        </div>
+    </section>
+    <h1 class="page-header">Protocols and Ports</h1>
+    <div class="table-container">
+    <table class="standard-table">
+        <colgroup>
+            <col style="width:50%;">
+            <col style="width:50%;">
+        </colgroup>
+        <tr>
+            <th>Protocols</th>
+            <th>Ports</th>
+        </tr>
+        <tr><td>FTP</td><td>20/21</td></tr>
+        <tr><td>SFTP</td><td>22</td></tr>
+        <tr><td>SSH</td><td>22</td></tr>
+        <tr><td>Telnet</td><td>23</td></tr>
+        <tr><td>DNS</td><td>53</td></tr>
+        <tr><td>SMTP</td><td>25</td></tr>
+        <tr><td>DHCP</td><td>67/68</td></tr>
+        <tr><td>TFTP</td><td>69</td></tr>
+        <tr><td>HTTP</td><td>80</td></tr>
+        <tr><td>NTP</td><td>123</td></tr>
+        <tr><td>SNMP</td><td>161/162</td></tr>
+        <tr><td>LDAP</td><td>389</td></tr>
+        <tr><td>HTTPS</td><td>443</td></tr>
+        <tr><td>SMB</td><td>445</td></tr>
+        <tr><td>LDAPS</td><td>636</td></tr>
+        <tr><td>RDP</td><td>3389</td></tr>
+        <tr><td>SIP</td><td>5060/5061</td></tr>
+    </table>
+    </div>
+    <section class="devices-section">
+        <h2 class="page-subheader" style="text-align:center; margin-top:16px; color:#ffffff; font-size:1.25rem;">Physical and virtual appliances</h2>
+        <div class="table-container">
+        <table class="standard-table">
+            <colgroup>
+                <col style="width:50%;">
+                <col style="width:50%;">
+            </colgroup>
+            <tr>
+                <th>Device</th>
+                <th>Definition</th>
+            </tr>
+            <tr><td>Router</td><td>Forwards packets between networks using IP routing.</td></tr>
+            <tr><td>Switch</td><td>Connects devices within a LAN and forwards frames by MAC.</td></tr>
+            <tr><td>Firewall</td><td>Enforces security policies by filtering and blocking traffic.</td></tr>
+            <tr><td>IDS/IPS</td><td>Detects (IDS) and prevents (IPS) malicious network activity.</td></tr>
+            <tr><td>Load balancer</td><td>Distributes incoming traffic across servers for availability.</td></tr>
+            <tr><td>Proxy</td><td>Forwards client requests to servers; can cache and filter traffic.</td></tr>
+            <tr><td>NAS</td><td>Network-attached storage offering file-level access over the network.</td></tr>
+            <tr><td>SAN</td><td>Storage Area Network providing block-level high-performance storage.</td></tr>
+            <tr><td>Wireless AP</td><td>Provides Wi‑Fi access for wireless client devices.</td></tr>
+            <tr><td>Wireless Controller</td><td>Centralized management and configuration for multiple APs.</td></tr>
+        </table>
+        </div>
+    </section>
+    <footer class="site-footer">dave.di.com 2026</footer>
+    <script>
+    (function(){
+        const current = location.pathname.replace(/^\//, '') || 'index.html';
+        document.querySelectorAll('.site-nav a').forEach(a=>{
+            const href = a.getAttribute('href');
+            if(!href) return;
+            // ignore anchors, mailto and javascript pseudo-links
+            if(href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('javascript:')) return;
+            try{
+                const url = new URL(href, location.href);
+                const p = url.pathname.replace(/^\//,'') || 'index.html';
+                if(p === current) a.classList.add('active');
+            }catch(e){}
+        });
+    })();
+    </script>
+</body>
+</html>

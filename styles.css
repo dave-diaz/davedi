@@ -1,0 +1,184 @@
+/* Reset & page setup */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    height: 100%;
+}
+
+/* Page */
+body {
+    background-color: #001026;
+    color: #fff;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 32px; /* increased padding */
+}
+
+/* Table layout */
+table {
+    border-collapse: collapse;
+    background: #001026; /* blue table */
+    color: #ffffff; /* default text inside table */
+}
+
+/* Container to ensure both tables share identical outer width/alignment */
+.table-container {
+    width: 50vw;
+    max-width: 90%;
+    margin: 20px auto;
+}
+
+/* Explicit class to ensure matching table dimensions */
+.standard-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #001026;
+    color: #ffffff;
+    table-layout: fixed;
+}
+
+th, td {
+    border: none;
+    padding: 8px;
+    vertical-align: middle;
+    background: transparent;
+}
+
+th {
+    background-color: transparent;
+    font-size: 1.25rem;
+    padding: 12px 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.9); /* thinner underline */
+}
+
+/* Left column: right-align text */
+td:first-child, th:first-child {
+    background: transparent;
+    color: #ffffff;
+    font-weight: 600;
+    text-align: right;
+    padding-right: 12px;
+}
+
+/* Right column: left-align text */
+td:nth-child(2) {
+    color: #39FF14; /* neon green */
+    font-weight: 600;
+    text-align: left;
+    padding-left: 12px;
+}
+
+th:nth-child(2) {
+    color: #ffffff; /* Ports header white */
+    text-align: left;
+    padding-left: 8px;
+}
+/* Make only the "Ports" header (protocols table) neon green */
+.page-header + .table-container .standard-table th:nth-child(2) {
+    color: #39FF14;
+}
+
+@media (max-width: 600px) {
+    .table-container {
+        width: 90vw;
+    }
+    table {
+        font-size: 14px;
+    }
+}
+
+/* Navigation bar (full-bleed) */
+.site-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    margin: 0; /* reset margins when fixed */
+    background: #39FF14; /* neon green */
+    color: #000000; /* black text */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    padding: 12px 0;
+    z-index: 1000;
+}
+.site-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0 32px; /* align items with page padding */
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    align-items: center;
+}
+.site-nav a {
+    color: #000000;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 6px 10px 6px 26px;
+    position: relative;
+}
+.site-nav a:hover {
+    opacity: 0.9;
+}
+
+/* Add top padding to body so fixed nav doesn't cover content */
+body {
+    padding-top: calc(32px + 56px);
+}
+
+.hero-image-wrap {
+    display: flex;
+    justify-content: center;
+    margin: 12px 0 24px;
+}
+
+.hero-image {
+    display: block;
+    max-width: min(420px, 90vw);
+    width: 100%;
+    height: auto;
+}
+/* Footer */
+.site-footer {
+    width: 100%;
+    background: #001026; /* white background */
+    color: #ffffff; /* black text */
+    text-align: center;
+    padding: 12px 0;
+    font-size: 0.95rem;
+    display: block;
+}
+.page-header {
+    text-align: center;
+    color: #ffffff;
+    margin: 12px 0 4px;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+/* Space below the OSI section so sections don't appear crowded */
+.osi-section {
+    margin-bottom: 68px;
+}
+/* Make the OSI table header (right column) neon green */
+.osi-section .standard-table th:nth-child(2) {
+    color: #39FF14;
+}
+
+/* Left-side chevron for current page and hover */
+.site-nav a::before {
+    content: ">";
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%) translateX(-6px);
+    color: inherit;
+    opacity: 0;
+    transition: opacity 120ms ease, transform 120ms ease;
+}
+.site-nav a:hover::before,
+.site-nav a.active::before {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+}
