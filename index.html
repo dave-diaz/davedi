@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>About — Dave</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .about-layout {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 20px;
+            margin-top: 28px;
+            align-items: start;
+        }
+
+        @media (max-width: 640px) {
+            .about-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav class="site-nav">
@@ -20,7 +35,7 @@
             <h1 style="text-align:center;margin-bottom:8px;">About Me</h1>
             <p style="text-align:center;opacity:0.9;">Hi — I'm Dave. I work with networking, protocols, and systems architecture. This page is a short bio and links to my work.</p>
 
-            <div style="display:grid;grid-template-columns:1fr 2fr;gap:20px;margin-top:28px;align-items:start;">
+            <div class="about-layout">
                 <div style="text-align:center;">
                     <div style="width:150px;height:150px;background:#002b3a;border-radius:8px;margin:0 auto;display:flex;align-items:center;justify-content:center;color:#39FF14;font-weight:700;">DD</div>
                     <p style="margin-top:12px;color:#fff;">Dave D.</p>
